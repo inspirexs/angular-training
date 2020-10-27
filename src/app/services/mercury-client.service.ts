@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Traveller } from '../models/traveller';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +14,11 @@ export class MercuryClientService {
     alert('TEST WORKS');
   }
 
-  getTraveller(): any{
+  getTraveller(): Observable<Traveller>{
     const httpHeaders: HttpHeaders = new HttpHeaders({
       Authorization: 'mobile_traveller_app_token'
     });
 
-    return this.httpClient.get<any>('https://mercury-api.st.globalblue.com:443/api/Globalblue/3.0/Members/documentType=PASSPORT&documentNumber=LU01201LU&documentCountry=ALA', { headers: httpHeaders} );
+    return this.httpClient.get<Traveller>('https://mercury-api.st.globalblue.com:443/api/Globalblue/3.0/Members/documentType=PASSPORT&documentNumber=LU01201LU&documentCountry=ALA', { headers: httpHeaders } );
   }
 }
