@@ -7,11 +7,11 @@ import { MercuryClientService } from 'src/app/services/mercury-client.service';
 import { DocsResultComponent } from './docs-result/docs-result.component';
 
 @Component({
-  selector: 'app-docs',
-  templateUrl: './docs.component.html',
-  styleUrls: ['./docs.component.css']
+  selector: 'app-document',
+  templateUrl: './document.component.html',
+  styleUrls: ['./document.component.css']
 })
-export class DocsComponent implements OnInit {
+export class DocumentComponent implements OnInit {
 
   traveller: Traveller = null;
   documentForm: FormGroup;
