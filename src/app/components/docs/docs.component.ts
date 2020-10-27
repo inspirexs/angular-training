@@ -20,7 +20,7 @@ export class DocsComponent implements OnInit {
   ngOnInit(): void {
     //this.getTraveller();
     this.documentForm = this.fb.group({
-      documentType: ['', [Validators.required, Validators.pattern('(PASSPORT|DOCUMENT)')]],
+      documentType: ['', [Validators.required, Validators.pattern('(PASSPORT|ID_CARD)')]],
       documentNumber: ['', Validators.required],
       documentCountry: ['', Validators.required]
     });
