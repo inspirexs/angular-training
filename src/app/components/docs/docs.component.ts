@@ -27,4 +27,8 @@ export class DocsComponent implements OnInit {
     });
   }
 
+  clearTraveller(): void{
+    this.traveller = null;
+  }
+
 }
