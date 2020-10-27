@@ -2,11 +2,13 @@
   docs works!
 </p>
 
-<h1>Traveller Details</h1>
-<p>First Name: {{traveller?.firstName}}</p>
-<p>Last Name: {{traveller?.lastName}}</p>
-<p>Email: {{traveller?.emailAddress}}</p>
-<p>Email: {{traveller?.emailAddressMasked}}</p>
+<div *ngIf="traveller != null">
+  <h1>Traveller Details</h1>
+  <p>First Name: {{traveller?.firstName}}</p>
+  <p>Last Name: {{traveller?.lastName}}</p>
+  <p>Email: {{traveller?.emailAddress}}</p>
+  <p>Email: {{traveller?.emailAddressMasked}}</p>
+</div>
 
 <button mat-raised-button color="primary" (click)="getTraveller()">Get Traveller</button>
 &nbsp;
