@@ -1,8 +1,10 @@
+import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DocumentRequest } from 'src/app/models/documentRequest';
 import { Traveller } from 'src/app/models/traveller';
 import { MercuryClientService } from 'src/app/services/mercury-client.service';
+import { DocsResultComponent } from './docs-result/docs-result.component';
 
 @Component({
   selector: 'app-docs',
@@ -13,6 +15,7 @@ export class DocsComponent implements OnInit {
 
   traveller: Traveller = null;
   documentForm: FormGroup;
+  @ViewChild(DocsResultComponent) private docsResult: DocsResultComponent;
 
   constructor(private mercuryClientService: MercuryClientService,
               private fb: FormBuilder) { }
@@ -30,6 +33,7 @@ export class DocsComponent implements OnInit {
     this.mercuryClientService.getTraveller('PASSPORT', 'LU01201LU', 'ALA').subscribe(data => {
       console.log(data);
       this.traveller = data;
+      this.docsResult.setTraveller(this.traveller);
       console.log(data.emailAddress);
     }, error => {
       console.log(error);
@@ -38,6 +42,7 @@ export class DocsComponent implements OnInit {
 
   clearTraveller(): void{
     this.traveller = null;
+    this.docsResult.setTraveller(null);
   }
 
   submitForm(): void{
@@ -50,6 +55,7 @@ export class DocsComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.traveller = data;
+        this.docsResult.setTraveller(this.traveller);
       });
     }
     else{

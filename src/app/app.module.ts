@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { DocsComponent } from './components/docs/docs.component';
+import { DocsResultComponent } from './components/docs/docs-result/docs-result.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { ContentComponent } from './components/content/content.component';
@@ -28,7 +29,8 @@ import { ContentInnerComponent } from './components/content/content-inner/conten
     LoginComponent,
     ContentComponent,
     ContentInnerComponent,
-    DocsComponent
+    DocsComponent,
+    DocsResultComponent
   ],
   imports: [
     BrowserModule,
