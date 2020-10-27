@@ -19,6 +19,7 @@ import { DocsComponent } from './components/docs/docs.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { ContentComponent } from './components/content/content.component';
+import { ContentInnerComponent } from './components/content/content-inner/content-inner.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ContentComponent } from './components/content/content.component';
     HeaderComponent,
     LoginComponent,
     ContentComponent,
+    ContentInnerComponent,
     DocsComponent
   ],
   imports: [
