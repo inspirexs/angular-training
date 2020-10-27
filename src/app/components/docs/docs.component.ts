@@ -41,15 +41,19 @@ export class DocsComponent implements OnInit {
   }
 
   submitForm(): void{
-    console.log(this.documentForm);
-    const documentRequest: DocumentRequest = Object.assign({}, this.documentForm.value);
-    console.log(documentRequest);
+    if (this.documentForm.valid){
+      console.log(this.documentForm);
+      const documentRequest: DocumentRequest = Object.assign({}, this.documentForm.value);
+      console.log(documentRequest);
 
-    this.mercuryClientService.getTraveller(documentRequest.documentType, documentRequest.documentNumber, documentRequest.documentCountry)
-    .subscribe(data => {
-      console.log(data);
-      this.traveller = data;
-    });
+      this.mercuryClientService.getTraveller(documentRequest.documentType, documentRequest.documentNumber, documentRequest.documentCountry)
+      .subscribe(data => {
+        console.log(data);
+        this.traveller = data;
+      });
+    }
+    else{
+      alert('invalid form');
+    }
   }
-
 }
