@@ -10,6 +10,42 @@
   <p>Email: {{traveller?.emailAddressMasked}}</p>
 </div>
 
-<button mat-raised-button color="primary" (click)="getTraveller()">Get Traveller</button>
+<form class="example-form" [formGroup]="documentForm" (ngSubmit)="submitForm()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Document Type</mat-label>
+    <input
+    formControlName="documentType"
+    matInput placeholder="Enter Your Document Type" value="">
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Document Number</mat-label>
+    <input
+    formControlName="documentNumber"
+    matInput placeholder="Enter Your Document Number" value="">
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Document Country</mat-label>
+    <input
+    formControlName="documentCountry"
+    matInput placeholder="Enter Your Document Country" value="">
+  </mat-form-field>
+
+  <br />
+
+  <button [disabled]="!documentForm.valid || !documentForm.dirty" mat-raised-button color="primary">Submit Form</button>
+</form>
+
+
+<br />
+<br />
+<br />
+
+<button mat-raised-button color="primary" (click)="getDefaultTraveller()">Get Default Traveller</button>
 &nbsp;
 <button mat-raised-button color="basic" (click)="clearTraveller()">Clear</button>

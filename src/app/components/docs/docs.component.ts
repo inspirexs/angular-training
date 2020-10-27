@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DocumentRequest } from 'src/app/models/documentRequest';
 import { Traveller } from 'src/app/models/traveller';
 import { MercuryClientService } from 'src/app/services/mercury-client.service';
 
@@ -10,15 +12,22 @@ import { MercuryClientService } from 'src/app/services/mercury-client.service';
 export class DocsComponent implements OnInit {
 
   traveller: Traveller = null;
+  documentForm: FormGroup;
 
-  constructor(private mercuryClientService: MercuryClientService) { }
+  constructor(private mercuryClientService: MercuryClientService,
+              private fb: FormBuilder) { }
 
   ngOnInit(): void {
     //this.getTraveller();
+    this.documentForm = this.fb.group({
+      documentType: ['', [Validators.required, Validators.pattern('(PASSPORT|DOCUMENT)')]],
+      documentNumber: ['', Validators.required],
+      documentCountry: ['', Validators.required]
+    });
   }
 
-  getTraveller(): void{
-    this.mercuryClientService.getTraveller().subscribe(data => {
+  getDefaultTraveller(): void{
+    this.mercuryClientService.getTraveller('PASSPORT', 'LU01201LU', 'ALA').subscribe(data => {
       console.log(data);
       this.traveller = data;
       console.log(data.emailAddress);
@@ -29,6 +38,18 @@ export class DocsComponent implements OnInit {
 
   clearTraveller(): void{
     this.traveller = null;
+  }
+
+  submitForm(): void{
+    console.log(this.documentForm);
+    const documentRequest: DocumentRequest = Object.assign({}, this.documentForm.value);
+    console.log(documentRequest);
+
+    this.mercuryClientService.getTraveller(documentRequest.documentType, documentRequest.documentNumber, documentRequest.documentCountry)
+    .subscribe(data => {
+      console.log(data);
+      this.traveller = data;
+    });
   }
 
 }
