@@ -3,5 +3,5 @@ import { DocumentComponent } from './document.component';
 
 
 export const documentRoutes: Routes = [
-  { path: 'document', component: DocumentComponent }
+  { path: '', component: DocumentComponent }
 ];
