@@ -20,7 +20,6 @@ import { LoginComponent } from './components/login/login.component';
 import { ContentComponent } from './components/content/content.component';
 import { ContentInnerComponent } from './components/content/content-inner/content-inner.component';
 
-import { DocumentModule } from 'src/modules/document/document.module';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { Subroute1Component } from './components/content/content-subroutes/subroute1/subroute1.component';
@@ -53,8 +52,6 @@ import { Subroute2Component } from './components/content/content-subroutes/subro
 
     FormsModule,
     ReactiveFormsModule,
-
-    DocumentModule,
 
     RouterModule.forRoot(appRoutes, {onSameUrlNavigation: 'reload'})
   ],

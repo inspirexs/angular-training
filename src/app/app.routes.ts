@@ -12,5 +12,6 @@ export const appRoutes: Routes = [
     { path: 'subroute1', component: Subroute1Component },
     { path: 'subroute2', component: Subroute2Component },
   ] },
+  { path: 'document', loadChildren: () => import('../modules/document/document.module').then(m => m.DocumentModule) },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
