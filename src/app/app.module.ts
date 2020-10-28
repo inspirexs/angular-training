@@ -23,6 +23,8 @@ import { ContentInnerComponent } from './components/content/content-inner/conten
 import { DocumentModule } from 'src/modules/document/document.module';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
+import { Subroute1Component } from './components/content/content-subroutes/subroute1/subroute1.component';
+import { Subroute2Component } from './components/content/content-subroutes/subroute2/subroute2.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { appRoutes } from './app.routes';
     LoginComponent,
     ContentComponent,
     ContentInnerComponent,
+    Subroute1Component,
+    Subroute2Component
   ],
   imports: [
     BrowserModule,
