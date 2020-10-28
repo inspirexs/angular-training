@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,6 +27,7 @@ import { Subroute2Component } from './components/content/content-subroutes/subro
 import { AuthGuard } from './guards/auth.guard';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { TravellerResolver } from './resolvers/traveller.resolver';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { TravellerResolver } from './resolvers/traveller.resolver';
 
     FormsModule,
     ReactiveFormsModule,
+    NgxSpinnerModule,
 
     RouterModule.forRoot(appRoutes, {onSameUrlNavigation: 'reload'})
   ],
@@ -64,6 +66,7 @@ import { TravellerResolver } from './resolvers/traveller.resolver';
 
     TravellerResolver
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

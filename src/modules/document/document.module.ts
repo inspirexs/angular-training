@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DocumentComponent } from './document.component';
 
@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { documentRoutes } from './document.routes';
 import { AuthGuard } from 'src/app/guards/auth.guard';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -30,6 +31,8 @@ import { AuthGuard } from 'src/app/guards/auth.guard';
     FormsModule,
     ReactiveFormsModule,
 
+    NgxSpinnerModule,
+
     RouterModule.forChild(documentRoutes)
   ],
   declarations: [
@@ -39,6 +42,7 @@ import { AuthGuard } from 'src/app/guards/auth.guard';
   providers: [
     AuthGuard
   ],
-  exports: []
+  exports: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DocumentModule { }

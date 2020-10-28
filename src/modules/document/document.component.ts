@@ -1,6 +1,7 @@
 import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { DocumentRequest } from 'src/app/models/documentRequest';
 import { Traveller } from 'src/app/models/traveller';
 import { MercuryClientService } from 'src/app/services/mercury-client.service';
@@ -18,7 +19,8 @@ export class DocumentComponent implements OnInit {
   @ViewChild(DocsResultComponent) private docsResult: DocsResultComponent;
 
   constructor(private mercuryClientService: MercuryClientService,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder,
+              private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     //this.getTraveller();
@@ -30,12 +32,15 @@ export class DocumentComponent implements OnInit {
   }
 
   getDefaultTraveller(): void{
+    this.spinner.show();
     this.mercuryClientService.getTraveller('PASSPORT', 'LU01201LU', 'ALA').subscribe(data => {
       console.log(data);
       this.traveller = data;
       this.docsResult.setTraveller(this.traveller);
+      this.spinner.hide();
     }, error => {
       console.log(error);
+      this.spinner.hide();
     });
   }
 
