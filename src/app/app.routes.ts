@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { DocumentComponent } from 'src/modules/document/document.component';
 import { Subroute1Component } from './components/content/content-subroutes/subroute1/subroute1.component';
 import { Subroute2Component } from './components/content/content-subroutes/subroute2/subroute2.component';
 import { ContentComponent } from './components/content/content.component';
