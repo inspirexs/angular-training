@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Traveller } from '../models/traveller';
@@ -14,11 +14,6 @@ export class TravellerResolver implements Resolve<Traveller>{
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Traveller> {
-    return this.mercuryClientService.getTraveller('PASSPORT', 'LU01201LU', 'ALA').pipe(
-      catchError(error => {
-          console.log(error);
-          return of(null);
-        })
-      );
+    return this.mercuryClientService.getTraveller('PASSPORT', 'LU01201LU', 'ALA');
   }
 }

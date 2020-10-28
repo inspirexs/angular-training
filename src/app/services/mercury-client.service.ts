@@ -4,13 +4,17 @@ import { Observable, of } from 'rxjs';
 import { Traveller } from '../models/traveller';
 import { catchError } from 'rxjs/operators';
 import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MercuryClientService {
 
-  constructor(private httpClient: HttpClient, private authService: AuthService) { }
+  constructor(private httpClient: HttpClient,
+              private authService: AuthService,
+              private router: Router
+    ) { }
 
   test(): void{
     alert('TEST WORKS');
@@ -25,6 +29,7 @@ export class MercuryClientService {
     return this.httpClient.get<Traveller>('https://mercury-api.st.globalblue.com:443/api/Globalblue/3.0/Members/documentType=' + documentType + '&documentNumber=' + documentNumber + '&documentCountry=' + documentCountry, { headers: httpHeaders } ).pipe(
       catchError(error => {
         console.log(error);
+        this.router.navigate(['/content']);
         return of(null);
       })
     );
