@@ -21,6 +21,8 @@ import { ContentComponent } from './components/content/content.component';
 import { ContentInnerComponent } from './components/content/content-inner/content-inner.component';
 
 import { DocumentModule } from 'src/modules/document/document.module';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './app.routes';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import { DocumentModule } from 'src/modules/document/document.module';
     FormsModule,
     ReactiveFormsModule,
 
-    DocumentModule
+    DocumentModule,
+
+    RouterModule.forRoot(appRoutes, {onSameUrlNavigation: 'reload'})
   ],
   providers: [],
   bootstrap: [AppComponent]

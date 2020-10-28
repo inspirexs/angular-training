@@ -1,14 +1,14 @@
 <mat-toolbar fxLayout="row" color="primary">
   <span fxFlex>Angular Material Training</span>
-  <button mat-button fxHide.xs>
-    <mat-icon class="mr">login</mat-icon>
+  <button mat-button fxHide.xs [routerLink]="['/']">
+    <mat-icon class="mr" >login</mat-icon>
     Login
   </button>
-  <button mat-button fxHide.xs>
+  <button mat-button fxHide.xs [routerLink]="['/content']">
     <mat-icon class="mr">slideshow</mat-icon>
     Content
   </button>
-  <button mat-button fxHide.xs>
+  <button mat-button fxHide.xs [routerLink]="['/document']">
     <mat-icon class="mr">rss_feed</mat-icon>
     Docs
   </button>
@@ -21,17 +21,17 @@
       <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #dropMenu="matMenu">
-    <button mat-button>
+    <button mat-button [routerLink]="['/']">
       <mat-icon class="mr">login</mat-icon>
       Login
     </button>
     <mat-divider></mat-divider>
-    <button mat-button>
+    <button mat-button [routerLink]="['/content']">
       <mat-icon class="mr">slideshow</mat-icon>
       Content
     </button>
     <mat-divider></mat-divider>
-    <button mat-button>
+    <button mat-button [routerLink]="['/document']">
       <mat-icon class="mr">rss_feed</mat-icon>
       Docs
     </button>
