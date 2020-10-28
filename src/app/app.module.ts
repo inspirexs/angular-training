@@ -24,6 +24,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { Subroute1Component } from './components/content/content-subroutes/subroute1/subroute1.component';
 import { Subroute2Component } from './components/content/content-subroutes/subroute2/subroute2.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 @NgModule({
@@ -55,7 +56,9 @@ import { Subroute2Component } from './components/content/content-subroutes/subro
 
     RouterModule.forRoot(appRoutes, {onSameUrlNavigation: 'reload'})
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

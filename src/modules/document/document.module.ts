@@ -16,6 +16,7 @@ import { DocsResultComponent } from './docs-result/docs-result.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { documentRoutes } from './document.routes';
+import { AuthGuard } from 'src/app/guards/auth.guard';
 
 @NgModule({
   imports: [
@@ -34,6 +35,9 @@ import { documentRoutes } from './document.routes';
   declarations: [
     DocumentComponent,
     DocsResultComponent
+  ],
+  providers: [
+    AuthGuard
   ],
   exports: []
 })

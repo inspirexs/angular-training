@@ -34,7 +34,6 @@ export class DocumentComponent implements OnInit {
       console.log(data);
       this.traveller = data;
       this.docsResult.setTraveller(this.traveller);
-      console.log(data.emailAddress);
     }, error => {
       console.log(error);
     });

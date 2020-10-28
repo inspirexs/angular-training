@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Traveller } from '../models/traveller';
 import { catchError } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MercuryClientService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
   test(): void{
     alert('TEST WORKS');
@@ -17,7 +18,7 @@ export class MercuryClientService {
 
   getTraveller(documentType: string, documentNumber: string, documentCountry: string): Observable<Traveller>{
     const httpHeaders: HttpHeaders = new HttpHeaders({
-      Authorization: 'mobile_traveller_app_token'
+      Authorization: this.authService.getToken()
     });
 
     // tslint:disable-next-line:max-line-length
