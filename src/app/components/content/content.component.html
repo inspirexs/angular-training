@@ -13,5 +13,5 @@
 <app-content-inner [name]="formValue"></app-content-inner>
 
 <button mat-raised-button color="accent" [routerLink]="['/content/subroute1']">Subroute1</button>
-<button mat-raised-button color="accent" [routerLink]="['/content/subroute2']">Subroute2</button>
+<button mat-raised-button color="accent" [routerLink]="['/content/subroute2/XXX']" [queryParams]="{name: 'LUBO'}">Subroute2</button>
 <router-outlet></router-outlet>
