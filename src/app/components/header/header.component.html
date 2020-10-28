@@ -12,7 +12,7 @@
     <mat-icon class="mr">rss_feed</mat-icon>
     Docs
   </button>
-  <button mat-button fxHide.xs>
+  <button mat-button fxHide.xs (click)="logout()">
     <mat-icon class="mr">exit_to_app</mat-icon>
     Logout
   </button>
@@ -36,7 +36,7 @@
       Docs
     </button>
     <mat-divider></mat-divider>
-    <button mat-button>
+    <button mat-button (click)="logout()">
       <mat-icon class="mr">exit_to_app</mat-icon>
       Logout
     </button>
