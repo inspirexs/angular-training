@@ -1,18 +1,18 @@
 <mat-toolbar fxLayout="row" color="primary">
   <span fxFlex>Angular Material Training {{subjectTitle}}</span>
-  <button mat-button fxHide.xs [routerLink]="['/']">
+  <button mat-button fxHide.xs [routerLink]="['/']" *ngIf="!loggedIn()">
     <mat-icon class="mr" >login</mat-icon>
     Login
   </button>
-  <button mat-button fxHide.xs [routerLink]="['/content']">
+  <button mat-button fxHide.xs [routerLink]="['/content']" *ngIf="loggedIn()">
     <mat-icon class="mr">slideshow</mat-icon>
     Content
   </button>
-  <button mat-button fxHide.xs [routerLink]="['/document']">
+  <button mat-button fxHide.xs [routerLink]="['/document']" *ngIf="loggedIn()">
     <mat-icon class="mr">rss_feed</mat-icon>
     Docs
   </button>
-  <button mat-button fxHide.xs (click)="logout()">
+  <button mat-button fxHide.xs (click)="logout()" *ngIf="loggedIn()">
     <mat-icon class="mr">exit_to_app</mat-icon>
     Logout
   </button>
@@ -21,22 +21,22 @@
       <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #dropMenu="matMenu">
-    <button mat-button [routerLink]="['/']">
+    <button mat-button [routerLink]="['/']" *ngIf="!loggedIn()">
       <mat-icon class="mr">login</mat-icon>
       Login
     </button>
     <mat-divider></mat-divider>
-    <button mat-button [routerLink]="['/content']">
+    <button mat-button [routerLink]="['/content']" *ngIf="loggedIn()">
       <mat-icon class="mr">slideshow</mat-icon>
       Content
     </button>
     <mat-divider></mat-divider>
-    <button mat-button [routerLink]="['/document']">
+    <button mat-button [routerLink]="['/document']" *ngIf="loggedIn()">
       <mat-icon class="mr">rss_feed</mat-icon>
       Docs
     </button>
     <mat-divider></mat-divider>
-    <button mat-button (click)="logout()">
+    <button mat-button (click)="logout()" *ngIf="loggedIn()">
       <mat-icon class="mr">exit_to_app</mat-icon>
       Logout
     </button>
