@@ -7,6 +7,5 @@ export const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'content', component: ContentComponent },
-  { path: 'document', component: DocumentComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

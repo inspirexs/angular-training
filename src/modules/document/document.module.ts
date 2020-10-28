@@ -14,6 +14,8 @@ import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DocsResultComponent } from './docs-result/docs-result.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { documentRoutes } from './document.routes';
 
 @NgModule({
   imports: [
@@ -26,11 +28,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
     FormsModule,
     ReactiveFormsModule,
+
+    RouterModule.forChild(documentRoutes)
   ],
   declarations: [
     DocumentComponent,
     DocsResultComponent
   ],
-  exports: [DocumentComponent]
+  exports: []
 })
 export class DocumentModule { }
